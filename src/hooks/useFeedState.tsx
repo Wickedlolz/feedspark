@@ -160,6 +160,7 @@ export const useFeedState = () => {
     if (storedFolders) {
       setFolders(storedFolders);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Save state changes
