@@ -37,7 +37,7 @@ In an age of information overload, staying updated with your favorite blogs, new
 ## Tech Stack
 
 - **Frontend:** React, TypeScript
-- **Styling:** Tailwind CSS (via CDN)
+- **Styling:** Tailwind CSS
 - **AI:** Google Gemini API (`@google/genai`)
 - **Modules:** Loaded directly in the browser via ESM over `esm.sh`
 - **Parsing:** Native `DOMParser` for handling RSS/XML data.
