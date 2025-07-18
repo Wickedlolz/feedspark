@@ -42,7 +42,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               alt="User avatar"
               className="w-8 h-8 rounded-full"
             />
-            <span className="font-bold text-white">My Feedly</span>
+            <span className="font-bold text-white">FeedSpark</span>
           </div>
           <button
             onClick={onClose}
