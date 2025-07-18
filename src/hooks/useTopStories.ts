@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
-import type { Article } from "../types";
 import { getTopStories } from "../services/geminiService";
+import type { Article } from "../types";
 
 interface UseTopStoriesReturn {
   topStories: Article[];
