@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Sidebar } from "./components/Sidebar";
 import { MainContent } from "./components/MainContent";
 import { useFeedState } from "./hooks/useFeedState";
+import { useTopStories } from "./hooks/useTopStories";
 import type { SelectedItem } from "./types";
 
 const App: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [currentView, setCurrentView] = useState<"all" | "top-stories">("all");
+
   const {
     folders,
     feeds,
@@ -19,8 +22,22 @@ const App: React.FC = () => {
     addFolder,
   } = useFeedState();
 
+  const {
+    topStories,
+    loading: topStoriesLoading,
+    error: topStoriesError,
+    fetchTopStories,
+  } = useTopStories();
+
+  useEffect(() => {
+    if (currentView === "top-stories") {
+      fetchTopStories(articles);
+    }
+  }, [currentView, articles, fetchTopStories]);
+
   const handleSelectItem = (item: SelectedItem) => {
     setSelectedItem(item);
+    setCurrentView("all");
     // Close sidebar on mobile after selection
     if (window.innerWidth < 768) {
       setIsSidebarOpen(false);
@@ -56,10 +73,12 @@ const App: React.FC = () => {
         onClose={() => setIsSidebarOpen(false)}
       />
       <MainContent
-        articles={articles}
-        loading={loading}
-        error={error}
+        articles={currentView === "all" ? articles : topStories}
+        loading={currentView === "all" ? loading : topStoriesLoading}
+        error={currentView === "all" ? error : topStoriesError}
         title={currentTitle}
+        currentView={currentView}
+        onSetCurrentView={setCurrentView}
         onMenuClick={() => setIsSidebarOpen(true)}
       />
     </div>
