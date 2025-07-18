@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Sidebar } from "./components/Sidebar";
-import { MainContent } from "./components/MainContent";
 import { useFeedState } from "./hooks/useFeedState";
 import { useTopStories } from "./hooks/useTopStories";
 import type { SelectedItem } from "./types";
+
+import { Sidebar } from "./components/Sidebar";
+import { MainContent } from "./components/MainContent";
 
 const App: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
