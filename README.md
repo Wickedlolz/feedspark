@@ -27,7 +27,6 @@ In an age of information overload, staying updated with your favorite blogs, new
 - **Add & Manage Feeds:** Easily add new RSS feeds by URL.
 - **Folder Organization:** Group related feeds into folders.
 - **Unified "All" View:** See a chronological list of articles from all your subscribed feeds.
-- **Unified "Top Stories" View:** When the "Top Stories" tab is selected, the titles and snippets of the currently displayed articles are sent to the Gemini API. The prompt asks the model to identify the 5 most important stories and return their IDs in a structured JSON format, which the app then uses to filter and display the results.
 - **🔝 AI Summaries:** Generate a concise, one-paragraph summary for any article with a single click, powered by Gemini.
 - **🔝 AI-Curated "Top Stories":** Automatically identify the 5 most significant and newsworthy articles from your selected feeds using Gemini's powerful JSON mode.
 - **Clean UI:** A modern, responsive, and dark-mode interface inspired by popular readers like Feedly.
