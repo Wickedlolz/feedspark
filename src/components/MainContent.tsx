@@ -1,26 +1,9 @@
 import React from "react";
-import type { Article } from "../types";
+import type { MainContentProps } from "../types";
+
 import { FeedItem } from "./FeedItem";
 import { RssIcon, MenuIcon } from "./Icons";
-
-interface MainContentProps {
-  articles: Article[];
-  loading: boolean;
-  error: string | null;
-  title: string;
-  onMenuClick: () => void;
-  currentView: "all" | "top-stories";
-  onSetCurrentView: (view: "all" | "top-stories") => void;
-}
-
-const ArticleSkeleton = () => (
-  <div className="py-6 border-b border-zinc-700/50 animate-pulse">
-    <div className="h-3 bg-zinc-700 rounded w-1/4 mb-3"></div>
-    <div className="h-6 bg-zinc-600 rounded w-3/4 mb-3"></div>
-    <div className="h-4 bg-zinc-700 rounded w-full mb-1"></div>
-    <div className="h-4 bg-zinc-700 rounded w-5/6"></div>
-  </div>
-);
+import ArticleSkeleton from "./ArticleSkeleton";
 
 export const MainContent: React.FC<MainContentProps> = ({
   articles,
@@ -72,35 +55,6 @@ export const MainContent: React.FC<MainContentProps> = ({
             </button>
           </div>
         </header>
-        {/* <header className="pb-4 border-b border-zinc-700">
-          <h1 className="text-3xl font-bold text-white">
-            {currentView === "top-stories" ? `Top Stories` : title}
-          </h1>
-          <div className="flex items-center mt-4 text-sm">
-            <button
-              onClick={() => onSetCurrentView("all")}
-              className={`pb-2 px-1 transition-colors ${
-                currentView === "all"
-                  ? "text-white font-semibold border-b-2 border-green-400"
-                  : "text-gray-400 hover:text-white"
-              }`}
-              aria-current={currentView === "all"}
-            >
-              All
-            </button>
-            <button
-              onClick={() => onSetCurrentView("top-stories")}
-              className={`ml-6 pb-2 px-1 transition-colors ${
-                currentView === "top-stories"
-                  ? "text-white font-semibold border-b-2 border-green-400"
-                  : "text-gray-400 hover:text-white"
-              }`}
-              aria-current={currentView === "top-stories"}
-            >
-              Top Stories
-            </button>
-          </div>
-        </header> */}
 
         <div className="mt-6">
           {loading && (
@@ -117,13 +71,6 @@ export const MainContent: React.FC<MainContentProps> = ({
             </div>
           )}
 
-          {/* {!loading && !error && articles.length === 0 && (
-            <div className="text-center py-20 text-gray-500">
-              <RssIcon className="mx-auto w-12 h-12 mb-4" />
-              <p className="text-lg">No articles to show.</p>
-              <p>Add a feed or select one from the sidebar.</p>
-            </div>
-          )} */}
           {!loading && !error && articles.length === 0 && (
             <div className="text-center py-20 text-gray-500">
               <RssIcon className="mx-auto w-12 h-12 mb-4" />
