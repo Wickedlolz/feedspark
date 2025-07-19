@@ -36,3 +36,13 @@ export interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
 }
+
+export interface MainContentProps {
+  articles: Article[];
+  loading: boolean;
+  error: string | null;
+  title: string;
+  onMenuClick: () => void;
+  currentView: "all" | "top-stories";
+  onSetCurrentView: (view: "all" | "top-stories") => void;
+}
