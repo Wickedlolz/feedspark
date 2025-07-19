@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
-import type { Article, Feed, Folder, SelectedItem } from "../types";
 import { fetchAndParseRss } from "../services/rssService";
 import useLocalStorage from "./useLocalStorage";
+import type { Article, Feed, Folder, SelectedItem } from "../types";
 
 export const useFeedState = () => {
   const [storedFolders, setStoredFolders] = useLocalStorage<Folder[]>(
