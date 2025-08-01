@@ -6,9 +6,11 @@ import type { SelectedItem } from "./types";
 import { Sidebar } from "./components/Sidebar";
 import { MainContent } from "./components/MainContent";
 
+type CurrentView = "all" | "top-stories";
+
 const App: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [currentView, setCurrentView] = useState<"all" | "top-stories">("all");
+  const [currentView, setCurrentView] = useState<CurrentView>("all");
 
   const {
     folders,
