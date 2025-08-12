@@ -1,7 +1,8 @@
 import type { Article } from "../types";
 
 // Using a CORS proxy to fetch feeds from the client-side.
-const CORS_PROXY = "https://thingproxy.freeboard.io/fetch/";
+// const CORS_PROXY = "https://api.allorigins.win/raw?url=";
+const CORS_PROXY = "https://corsproxy.io/?";
 
 const getText = (node: Element | Document, selector: string): string => {
   const element = node.querySelector(selector);
