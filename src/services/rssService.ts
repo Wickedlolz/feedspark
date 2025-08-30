@@ -1,7 +1,5 @@
-import type { Article } from "../types";
+import type { Article } from "@/src/types";
 
-// Using a CORS proxy to fetch feeds from the client-side.
-// const CORS_PROXY = "https://api.allorigins.win/raw?url=";
 const CORS_PROXY = "https://corsproxy.io/?";
 
 const getText = (node: Element | Document, selector: string): string => {
